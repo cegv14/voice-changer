@@ -1,6 +1,6 @@
 import sys
 
-from distutils.util import strtobool
+#from distutils.util import strtobool
 from datetime import datetime
 import socket
 import platform
@@ -38,6 +38,14 @@ else:
 logger = VoiceChangaerLogger.get_instance().getLogger()
 logger.debug(f"---------------- Booting PHASE :{__name__} -----------------")
 
+def strtobool(val):
+     val = val.lower() 
+     if val in ['y', 'yes', 't', 'true', 'on', '1']:
+         return True 
+     elif val in ['n', 'no', 'f', 'false', 'off', '0']:
+         return False 
+     else:
+        raise ValueError(f"Invalid truth value: {val}")
 
 def setupArgParser():
     parser = argparse.ArgumentParser()
