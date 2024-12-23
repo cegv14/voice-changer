@@ -45,7 +45,7 @@ def wait_for_server():
 
 threading.Thread(target=wait_for_server, daemon=True).start()
 
-!python MMVCServerSIO.py \
+python MMVCServerSIO.py \
   -p {PORT} \
   --https False \
   --content_vec_500 pretrain/checkpoint_best_legacy_500.pt \
